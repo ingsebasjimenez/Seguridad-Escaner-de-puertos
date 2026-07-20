@@ -1,5 +1,6 @@
 from port_scanner.scanner import escanear_rango
 from password_analyzer.analyzer import analizar_contraseña
+from database.db import guardar_escaneo
 
 
 def menu_escaner():
@@ -15,6 +16,9 @@ def menu_escaner():
         print(f"Puertos abiertos encontrados: {abiertos}")
     else:
         print("No se encontraron puertos abiertos en ese rango.")
+
+    # Guardar el resultado en la base de datos
+    guardar_escaneo(ip, puerto_inicio, puerto_fin, abiertos)
 
 
 def menu_analizador():
